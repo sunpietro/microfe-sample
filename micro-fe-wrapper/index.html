@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Micro-frontends using Web Components</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+
+    <body onload="initApps()">
+        <div class="container">
+            <sunpietro-notification id="notifier" type="info">
+                <h3 slot="title">The output</h3>
+                <p>Dummy text</p>
+            </sunpietro-notification>
+            <div class="row">
+                <div class="col">
+                    <div class="alert alert-info" role="alert">
+                        <h4 class="alert-heading">What is your name?</h4>
+                        <div class="form-group">
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="yourName"
+                                aria-describedby="yourName"
+                                placeholder="Your name"
+                                value="Piotr"
+                            />
+                        </div>
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                            onclick="initApps()"
+                        >
+                            Pass the name to micro frontend apps
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="card">
+                        <h5 class="card-header">Angular</h5>
+                        <div class="card-body" id="ng-container">
+                            <ng-el id="ng-app"></ng-el>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <h5 class="card-header">React</h5>
+                        <div class="card-body" id="react-container">
+                            <react-el id="react-app"></react-el>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.9.1/zone.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.10/custom-elements-es5-adapter.js"></script>
+        <script src="http://localhost:5001/main.js"></script>
+        <script src="http://localhost:5002/main.js"></script>
+        <script src="sunpietro-notification.js"></script>
+        <script src="scripts.js"></script>
+    </body>
+</html>

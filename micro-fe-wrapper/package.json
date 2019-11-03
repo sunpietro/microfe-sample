@@ -1,0 +1,10 @@
+{
+    "name": "micro-fe-wrapper",
+    "private": true,
+    "author": "Piotr Nalepa",
+    "license": "MIT",
+    "main": "index.html",
+    "scripts": {
+        "start": "npx serve -l 5000"
+    }
+}
